@@ -1,7 +1,5 @@
 # terraform-module-linode-webserver
 
-A simple Terraform module for creating instances in Linode.
-
 ## Module
 
 Invoke this module from the root `main.tf` file.
