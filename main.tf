@@ -4,20 +4,22 @@ resource "linode_sshkey" "mykey" {
   ssh_key = chomp(file(var.public_key_path))
 }
 
+# resource "linode_instance_label" "name" {
+#   label   = "My SSH key"
+#   ssh_key = "web_server-${count.index}"
+# }
+
 resource "linode_instance" "web" {
   count           = var.node_count
-  label           = "web_server-${count.index}"
-  image           = "linode/ubuntu20.04"
+  label           = "${var.label}-${count.index}"
+  image           = var.image
   region          = var.region
   type            = var.instance_type
   authorized_keys = [linode_sshkey.mykey.ssh_key]
-  root_pass       = random_string.password.result
-  # root_pass       = var.root_password
-
-  group      = "webservers"
-  tags       = ["demo"]
-  private_ip = true
-
+  root_pass       = random_string.password.result #var.root_password
+  group           = var.group
+  tags            = var.tags
+  private_ip      = true
 
   connection {
     type = "ssh"

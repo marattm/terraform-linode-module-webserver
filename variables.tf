@@ -10,3 +10,20 @@ resource "random_string" "password" {
   lower   = true
   number  = true
 }
+variable "image" {}
+variable "label" {
+  default = "example_instance_label"
+}
+variable "swap_size" {
+  #TODO: should be defined by the  instance size using the var linode_type..
+  description = "Swap size in MB."
+  type        = number
+}
+variable "group" {
+  type    = string
+  default = "webservers"
+}
+variable "tags" {
+  type    = list(string)
+  default = ["example"]
+}
