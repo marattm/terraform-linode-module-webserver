@@ -1,4 +1,4 @@
-variable "public_key_location" {}
+variable "public_key_path" {}
 variable "root_password" {}
 variable "region" {}
 variable "node_count" {}

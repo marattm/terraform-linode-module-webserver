@@ -1,7 +1,7 @@
 
 resource "linode_sshkey" "mykey" {
   label   = "My SSH key"
-  ssh_key = chomp(file(var.public_key_location))
+  ssh_key = chomp(file(var.public_key_path))
 }
 
 resource "linode_instance" "web" {
