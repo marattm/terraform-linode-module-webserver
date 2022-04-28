@@ -12,7 +12,7 @@ resource "random_string" "password" {
 }
 variable "image" {}
 variable "label" {
-  default = "example_instance_label"
+  default = "example_web_instance_label"
 }
 variable "swap_size" {
   #TODO: should be defined by the  instance size using the var linode_type..
