@@ -14,11 +14,11 @@ variable "image" {}
 variable "label" {
   default = "example_web_instance_label"
 }
-variable "swap_size" {
-  #TODO: should be defined by the  instance size using the var linode_type..
-  description = "Swap size in MB."
-  type        = number
-}
+# variable "swap_size" {
+#   #TODO: should be defined by the  instance size using the var linode_type..
+#   description = "Swap size in MB."
+#   type        = number
+# }
 variable "group" {
   type    = string
   default = "webservers"
@@ -26,4 +26,20 @@ variable "group" {
 variable "tags" {
   type    = list(string)
   default = ["example"]
+}
+
+variable "DOMAIN" {
+  description = "Root or subdomain."
+  type        = string
+  default     = ""
+}
+
+variable "SITE" {
+  description = "Site name of the project/app."
+  default     = ""
+}
+variable "ID" {
+  description = "Id of the release, usually an int."
+  type        = number
+  default     = 1
 }

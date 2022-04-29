@@ -4,14 +4,9 @@ resource "linode_sshkey" "mykey" {
   ssh_key = chomp(file(var.public_key_path))
 }
 
-# resource "linode_instance_label" "name" {
-#   label   = "My SSH key"
-#   ssh_key = "web_server-${count.index}"
-# }
-
 resource "linode_instance" "web" {
   count           = var.node_count
-  label           = "${var.label}-${count.index}"
+  label           = "${var.SITE}-web${var.ID + count.index}.${var.DOMAIN}"
   image           = var.image
   region          = var.region
   type            = var.instance_type
