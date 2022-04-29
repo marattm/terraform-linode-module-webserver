@@ -24,17 +24,17 @@ resource "linode_instance" "web" {
     host     = self.ip_address
   }
 
-  provisioner "file" {
-    source      = "setup_script.sh"
-    destination = "/tmp/setup_script.sh"
-  }
+  # provisioner "file" {
+  #   source      = "setup_script.sh"
+  #   destination = "/tmp/setup_script.sh"
+  # }
 
-  provisioner "remote-exec" {
-    inline = [
-      "chmod +x /tmp/setup_script.sh",
-      "/tmp/setup_script.sh ${count.index + 1}",
-    ]
-  }
+  # provisioner "remote-exec" {
+  #   inline = [
+  #     "chmod +x /tmp/setup_script.sh",
+  #     "/tmp/setup_script.sh ${count.index + 1}",
+  #   ]
+  # }
 
   # provisioner "remote-exec" {
   #   inline = [
