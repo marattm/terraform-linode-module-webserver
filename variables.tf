@@ -10,6 +10,11 @@ resource "random_string" "password" {
   lower   = true
   number  = true
 }
+variable "backups_enabled" {
+  type    = bool
+  default = false
+}
+
 variable "image" {}
 variable "label" {
   default = "example_web_instance_label"

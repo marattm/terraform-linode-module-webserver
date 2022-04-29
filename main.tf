@@ -10,6 +10,7 @@ resource "linode_instance" "web" {
   image           = var.image
   region          = var.region
   type            = var.instance_type
+  backups_enabled = var.backups_enabled
   authorized_keys = [linode_sshkey.mykey.ssh_key]
   root_pass       = random_string.password.result #var.root_password
   group           = var.group
